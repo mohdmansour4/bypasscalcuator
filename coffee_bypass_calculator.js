@@ -1,20 +1,19 @@
-document.addEventListener('DOMContentLoaded', function() {
-  const calculateButton = document.getElementById('calculate-btn');
-  
-  calculateButton.addEventListener('click', function() {
-    const coffeeWeight = parseFloat(document.getElementById('coffeeWeight').value);
-    const currentTDS = parseFloat(document.getElementById('currentTDS').value);
-    const targetTDS = parseFloat(document.getElementById('targetTDS').value);
+<div id="calculator">
+    <h2>Coffee Bypass Calculator</h2>
 
-    if (isNaN(coffeeWeight) || isNaN(currentTDS) || isNaN(targetTDS) || coffeeWeight <= 0 || currentTDS <= 0 || targetTDS <= 0) {
-      alert("Please enter valid positive numbers.");
-      return;
-    }
+    <label for="coffeeWeight">My Coffee Weighs (g):</label>
+    <input type="number" id="coffeeWeight" placeholder="Enter coffee weight" required>
 
-    const finalWeight = (coffeeWeight * currentTDS) / targetTDS;
-    const waterToAdd = finalWeight - coffeeWeight;
+    <label for="currentTDS">Current TDS (%):</label>
+    <input type="number" id="currentTDS" placeholder="Enter current TDS" required>
 
-    document.getElementById('finalWeight').innerText = 'Final Weight (g): ' + finalWeight.toFixed(2);
-    document.getElementById('waterToAdd').innerText = 'Water to Add (g): ' + waterToAdd.toFixed(2);
-  });
-});
+    <label for="targetTDS">Target TDS (%):</label>
+    <input type="number" id="targetTDS" placeholder="Enter target TDS" required>
+
+    <button id="calculate-btn">Calculate</button>
+
+    <div class="results">
+      <p id="finalWeight" style="display: none;">Final Weight (g): --</p> <!-- Hidden by default -->
+      <p id="waterToAdd">Water to Add (g): --</p>
+    </div>
+</div>
