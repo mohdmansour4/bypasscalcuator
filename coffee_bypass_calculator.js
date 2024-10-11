@@ -15,8 +15,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const finalWeight = (coffeeWeight * currentTDS) / targetTDS;
     const waterToAdd = finalWeight - coffeeWeight;
 
-    // Final Weight is calculated but will not be shown to the user
+    // Update the Final Weight (but keep it hidden)
     document.getElementById('finalWeight').innerText = 'Final Weight (g): ' + finalWeight.toFixed(2);
+    document.getElementById('finalWeight').style.display = 'none';  // Ensure it remains hidden
 
     // Show only Water to Add to the user
     document.getElementById('waterToAdd').innerText = 'Water to Add (g): ' + waterToAdd.toFixed(2);
