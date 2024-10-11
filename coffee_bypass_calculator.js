@@ -11,11 +11,14 @@ document.addEventListener('DOMContentLoaded', function() {
       return;
     }
 
-    // Calculate Water to Add (without displaying the Final Weight)
+    // Calculate Final Weight and Water to Add
     const finalWeight = (coffeeWeight * currentTDS) / targetTDS;
     const waterToAdd = finalWeight - coffeeWeight;
 
-    // Only show Water to Add result
+    // Final Weight is calculated but will not be shown to the user
+    document.getElementById('finalWeight').innerText = 'Final Weight (g): ' + finalWeight.toFixed(2);
+
+    // Show only Water to Add to the user
     document.getElementById('waterToAdd').innerText = 'Water to Add (g): ' + waterToAdd.toFixed(2);
   });
 });
