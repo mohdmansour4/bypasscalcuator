@@ -35,6 +35,10 @@
       font-size: 16px;
       color: #333;
     }
+    /* Hide the final weight from user display */
+    #finalWeight {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -54,7 +58,7 @@
     <button id="calculate-btn">Calculate</button>
 
     <div class="results">
-      <!-- Only Water to Add (g) will be shown -->
+      <p id="finalWeight">Final Weight (g): --</p> <!-- Hidden from display -->
       <p id="waterToAdd">Water to Add (g): --</p>
     </div>
   </div>
