@@ -11,7 +11,7 @@ function translateBypassPage(lang) {
         ar: {
             coffeeWeight: "وزن القهوة المحضرة (جرام):",
             currentTDS: "نسبة التركيز الحالية TDS%:",
-            targetTDS: "نسبة التركيز المستهدفة TDS%:",
+            targetTDS: "نسبة التركيز المطلوبة TDS%:",
             calculate: "إحسب",
             waterToAdd: "الماء المطلوب إضافته (جرام): --"
         }
@@ -23,6 +23,9 @@ function translateBypassPage(lang) {
     document.querySelector('label[for="targetTDS"]').textContent = translations[lang].targetTDS;
     document.getElementById('calculate-btn').textContent = translations[lang].calculate;
     document.getElementById('waterToAdd').textContent = translations[lang].waterToAdd;
+
+    // Set the page direction for RTL or LTR
+    document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
 }
 
 // Listen for external commands to switch languages from Carrd
