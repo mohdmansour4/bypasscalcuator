@@ -10,8 +10,8 @@ function translateBypassPage(lang) {
         },
         ar: {
             coffeeWeight: "وزن القهوة المحضرة (جرام):",
-            currentTDS: "نسبة TDS الحالية (%):",
-            targetTDS: "نسبة TDS المستهدفة (%):",
+            currentTDS: "نسبة التركيز الحالية TDS%:",
+            targetTDS: "نسبة التركيز المستهدفة TDS%:",
             calculate: "إحسب",
             waterToAdd: "الماء المطلوب إضافته (جرام): --"
         }
