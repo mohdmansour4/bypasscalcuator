@@ -7,18 +7,31 @@
   <!-- Link to the external CSS file -->
   <link rel="stylesheet" href="styles.css">
   <style>
-    /* Inline styles that are specific to this page */
+    /* Style for the overall calculator container */
     #calculator {
       max-width: 400px;
       margin: 0 auto;
       padding: 20px;
-      background-color: #f5f5f5;
+      background-color: #f9f9f9;
       border-radius: 15px;
       box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
       font-family: 'Arial', sans-serif;
+      direction: rtl; /* Enable RTL support */
     }
 
-    /* Additional styles for labels, inputs, and buttons can be removed or adjusted */
+    /* Additional styles for RTL text and alignment */
+    body[dir="rtl"] #calculator {
+      direction: rtl;
+      text-align: right;
+    }
+
+    /* Hide the final weight visually but keep it accessible */
+    #finalWeight {
+      visibility: hidden;
+      height: 0;
+      margin: 0;
+      padding: 0;
+    }
   </style>
 </head>
 <body>
