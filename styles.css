@@ -19,39 +19,69 @@ label {
   text-align: center; /* Center label text */
 }
 
-/* Style for the number inputs */
-input[type="number"] {
-  width: 80%; /* Adjust for a centered look */
-  padding: 10px;
-  margin: 10px auto; /* Center the input boxes */
-  border-radius: 8px;
+/* Integrated Plus/Minus Stepper */
+.stepper {
+  display: flex;
+  align-items: center;
   border: 1px solid #ccc;
+  border-radius: 8px;
+  overflow: hidden;
+  width: 80%; /* Adjust for centering */
+  margin: 10px auto; /* Center the steppers */
+}
+
+.stepper input[type="number"] {
+  flex: 1; /* Allow input to take remaining space */
+  padding: 10px 0; /* Ensure uniform padding */
+  border: none;
+  text-align: center; /* Center text within the input */
   font-size: 16px;
   box-sizing: border-box;
-  text-align: center; /* Center text within the input */
-  display: block;
-  -webkit-appearance: none; /* Remove iOS styling */
-  -moz-appearance: textfield; /* Remove Firefox styling */
+  height: 40px; /* Fixed height */
+  appearance: textfield; /* Ensure consistent look */
+  min-width: 0; /* Prevent input from stretching too much */
 }
 
-/* Ensure stepper buttons are visible on mobile */
+.stepper button {
+  width: 40px; /* Fixed width for uniformity */
+  background-color: #ddd;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+  height: 40px; /* Match the height of input */
+}
+
+.stepper button:hover {
+  background-color: #ccc; /* Darker background on hover */
+}
+
+/* Remove default stepper arrows */
 input[type="number"]::-webkit-inner-spin-button, 
 input[type="number"]::-webkit-outer-spin-button {
-  opacity: 1; /* Force visibility */
-  height: auto;
-  width: auto;
+  -webkit-appearance: none;
+  margin: 0;
 }
 
-/* Mobile adjustments for number inputs */
+/* Hide the final weight visually but keep it accessible */
+#finalWeight {
+  display: none; /* Completely hide it from the user */
+}
+
+/* Mobile adjustments */
 @media (max-width: 600px) {
-  input[type="number"] {
+  .stepper input[type="number"] {
     font-size: 18px; /* Larger font for easier reading */
-    padding: 12px; /* Increased padding for better touch */
+    padding: 12px 0; /* Increased padding for better touch */
   }
 }
 
 /* Style for the calculate button */
-button {
+button.calculate {
   width: 80%; /* Adjust width for centering */
   padding: 12px;
   background-color: #0056D2; /* Blue color similar to Coffee Toolkit */
@@ -66,12 +96,12 @@ button {
   display: block;
 }
 
-button:hover {
+button.calculate:hover {
   background-color: #0041a8; /* Darker blue on hover */
   transform: translateY(-3px); /* Slight lift effect */
 }
 
-button:active {
+button.calculate:active {
   transform: translateY(0); /* Reset lift on click */
 }
 
