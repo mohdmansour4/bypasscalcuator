@@ -1,28 +1,29 @@
-/* Style for labels and inputs */
+/* Center labels, inputs, and buttons */
 label {
   font-size: 16px;
   color: #333;
   margin-bottom: 5px;
   display: block;
-  text-align: right; /* Right align text for RTL */
+  text-align: center; /* Center label text */
 }
 
 input[type="number"] {
-  width: 100%;
+  width: 80%; /* Adjust for a centered look */
   padding: 10px;
-  margin-bottom: 15px;
+  margin: 10px auto; /* Center the input boxes */
   border-radius: 8px;
   border: 1px solid #ccc;
   font-size: 16px;
   box-sizing: border-box;
-  text-align: right; /* Right align input content */
+  text-align: center; /* Center text within the input */
+  display: block;
 }
 
 /* Style for the calculate button */
 button {
-  width: 100%;
+  width: 80%; /* Adjust width for centering */
   padding: 12px;
-  background-color: #0056D2; /* Blue similar to Coffee Toolkit */
+  background-color: #0056D2; /* Blue color similar to Coffee Toolkit */
   color: white;
   border: none;
   border-radius: 8px;
@@ -30,6 +31,8 @@ button {
   cursor: pointer;
   transition: background-color 0.3s ease;
   text-transform: uppercase;
+  margin: 10px auto; /* Center the button */
+  display: block;
 }
 
 button:hover {
@@ -40,7 +43,7 @@ button:hover {
 .results p {
   font-size: 16px;
   font-weight: bold;
-  text-align: center;
+  text-align: center; /* Center the result text */
   margin-top: 10px;
   color: #333;
 }
