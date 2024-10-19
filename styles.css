@@ -1,42 +1,46 @@
-/* Center labels, inputs, and buttons */
-body, label, input, button, p {
-    text-align: center;
-    margin: 0 auto;
-    display: block;
+/* Style for labels and inputs */
+label {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+  display: block;
+  text-align: right; /* Right align text for RTL */
 }
 
-/* Remove any placeholders from inputs */
-input::placeholder {
-    color: transparent;
-}
-
-/* Style inputs and buttons */
 input[type="number"] {
-    width: 80%;
-    padding: 10px;
-    margin: 10px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    text-align: center;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  box-sizing: border-box;
+  text-align: right; /* Right align input content */
 }
 
+/* Style for the calculate button */
 button {
-    padding: 10px 20px;
-    background: #0056D2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
+  width: 100%;
+  padding: 12px;
+  background-color: #0056D2; /* Blue similar to Coffee Toolkit */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
 }
 
 button:hover {
-    background: #0041a8;
+  background-color: #0041a8; /* Darker blue on hover */
 }
 
-p {
-    font-size: 16px;
-    font-weight: bold;
-    margin-top: 15px;
+/* Style for results text */
+.results p {
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 10px;
+  color: #333;
 }
