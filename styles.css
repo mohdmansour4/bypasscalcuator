@@ -1,3 +1,15 @@
+/* General Container Styles */
+#calculator {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Arial', sans-serif;
+  text-align: center;
+}
+
 /* Center labels, inputs, and buttons */
 label {
   font-size: 16px;
@@ -7,6 +19,7 @@ label {
   text-align: center; /* Center label text */
 }
 
+/* Style for the number inputs */
 input[type="number"] {
   width: 80%; /* Adjust for a centered look */
   padding: 10px;
@@ -17,6 +30,24 @@ input[type="number"] {
   box-sizing: border-box;
   text-align: center; /* Center text within the input */
   display: block;
+  -webkit-appearance: none; /* Remove iOS styling */
+  -moz-appearance: textfield; /* Remove Firefox styling */
+}
+
+/* Ensure stepper buttons are visible on mobile */
+input[type="number"]::-webkit-inner-spin-button, 
+input[type="number"]::-webkit-outer-spin-button {
+  opacity: 1; /* Force visibility */
+  height: auto;
+  width: auto;
+}
+
+/* Mobile adjustments for number inputs */
+@media (max-width: 600px) {
+  input[type="number"] {
+    font-size: 18px; /* Larger font for easier reading */
+    padding: 12px; /* Increased padding for better touch */
+  }
 }
 
 /* Style for the calculate button */
@@ -29,7 +60,7 @@ button {
   border-radius: 8px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease;
   text-transform: uppercase;
   margin: 10px auto; /* Center the button */
   display: block;
@@ -37,6 +68,11 @@ button {
 
 button:hover {
   background-color: #0041a8; /* Darker blue on hover */
+  transform: translateY(-3px); /* Slight lift effect */
+}
+
+button:active {
+  transform: translateY(0); /* Reset lift on click */
 }
 
 /* Style for results text */
@@ -46,4 +82,9 @@ button:hover {
   text-align: center; /* Center the result text */
   margin-top: 10px;
   color: #333;
+}
+
+/* General RTL support */
+body[dir="rtl"] #calculator {
+  direction: rtl;
 }
