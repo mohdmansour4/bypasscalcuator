@@ -1,47 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Coffee Bypass Calculator</title>
-  <!-- Link to the external CSS file -->
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Bypass Calculator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div id="calculator">
+        <div class="calculator-header">
+            <h2>Coffee Bypass Calculator</h2>
+            <button class="reset-btn" onclick="resetCalculator()" aria-label="Reset calculator">
+                <svg viewBox="0 0 24 24" width="16" height="16">
+                    <path fill="currentColor" d="M17.65 6.35A7.958 7.958 0 0012 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08A5.99 5.99 0 0112 18c-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                </svg>
+            </button>
+        </div>
 
-  <div id="calculator">
-    <!-- No heading, space optimized -->
-    <label for="coffeeWeight">My Coffee Weighs (g):</label>
-    <div class="stepper">
-      <button onclick="this.nextElementSibling.stepDown()">-</button>
-      <input type="number" id="coffeeWeight" required step="1">
-      <button onclick="this.previousElementSibling.stepUp()">+</button>
+        <div class="input-group">
+            <label for="coffeeWeight">My Coffee Weighs (g):</label>
+            <div class="stepper" role="spinbutton" aria-valuemin="0">
+                <button type="button" class="stepper-btn minus">−</button>
+                <input type="number" id="coffeeWeight" required step="1" min="0">
+                <button type="button" class="stepper-btn plus">+</button>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="currentTDS">Current TDS (%):</label>
+            <div class="stepper" role="spinbutton" aria-valuemin="0" aria-valuemax="12">
+                <button type="button" class="stepper-btn minus">−</button>
+                <input type="number" id="currentTDS" required step="0.01" min="0" max="12">
+                <button type="button" class="stepper-btn plus">+</button>
+                <div class="tooltip">Range: 0-12%</div>
+            </div>
+        </div>
+
+        <div class="input-group">
+            <label for="targetTDS">Target TDS (%):</label>
+            <div class="stepper" role="spinbutton" aria-valuemin="0" aria-valuemax="5">
+                <button type="button" class="stepper-btn minus">−</button>
+                <input type="number" id="targetTDS" required step="0.01" min="0" max="5">
+                <button type="button" class="stepper-btn plus">+</button>
+                <div class="tooltip">Range: 0-5%</div>
+            </div>
+        </div>
+
+        <button id="calculate-btn" class="calculate" onclick="showCalculating()">Calculate</button>
+
+        <div class="results">
+            <div class="result-wrapper">
+                <p id="waterToAdd">Water to Add (g): --</p>
+                <button class="copy-btn" onclick="copyResults()" aria-label="Copy results">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="version-label">v2.0</div>
+        </div>
+
+        <!-- Toast notification -->
+        <div id="toast" class="toast" role="alert" aria-live="polite"></div>
     </div>
 
-    <label for="currentTDS">Current TDS (%):</label>
-    <div class="stepper">
-      <button onclick="this.nextElementSibling.stepDown()">-</button>
-      <input type="number" id="currentTDS" required step="0.01">
-      <button onclick="this.previousElementSibling.stepUp()">+</button>
-    </div>
-
-    <label for="targetTDS">Target TDS (%):</label>
-    <div class="stepper">
-      <button onclick="this.nextElementSibling.stepDown()">-</button>
-      <input type="number" id="targetTDS" required step="0.01">
-      <button onclick="this.previousElementSibling.stepUp()">+</button>
-    </div>
-
-    <button id="calculate-btn" class="calculate">Calculate</button>
-
-    <div class="results">
-      <p id="finalWeight">Final Weight (g): --</p> <!-- Hidden from display -->
-      <p id="waterToAdd">Water to Add (g): --</p>
-    </div>
-  </div>
-
-  <!-- Link to your external JavaScript file -->
-  <script src="coffee_bypass_calculator.js"></script>
-
+    <script src="coffee_bypass_calculator.js"></script>
 </body>
 </html>
