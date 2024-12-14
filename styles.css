@@ -1,120 +1,153 @@
-/* General Container Styles */
+:root {
+    --primary-color: #27949C;
+    --text-color: #333;
+    --border-color: #ddd;
+    --hover-color: #1b666c;
+}
+
 #calculator {
-  max-width: 400px;
-  margin: 0 auto;
-  padding: 20px;
-  background-color: #f9f9f9;
-  border-radius: 15px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  font-family: 'Arial', sans-serif;
-  text-align: center;
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 30px;
+    background: #f5f5f5;
+    border-radius: 12px;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+    font-family: system-ui, -apple-system, sans-serif;
 }
 
-/* Center labels, inputs, and buttons */
+/* Labels */
 label {
-  font-size: 16px;
-  color: #333;
-  margin-bottom: 5px;
-  display: block;
-  text-align: center; /* Center label text */
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: var(--text-color);
+    text-align: center;
 }
 
-/* Integrated Plus/Minus Stepper */
+/* Stepper Container */
 .stepper {
-  display: flex;
-  align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  overflow: hidden;
-  width: 80%; /* Adjust for centering */
-  margin: 10px auto; /* Center the steppers */
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 45px;
+    width: 200px;
+    border: 2px solid var(--border-color);
+    border-radius: 6px;
+    overflow: hidden;
+    margin: 0 auto 25px;
+    background: white;
 }
 
+/* Input */
 .stepper input[type="number"] {
-  flex: 1; /* Allow input to take remaining space */
-  padding: 10px 0; /* Ensure uniform padding */
-  border: none;
-  text-align: center; /* Center text within the input */
-  font-size: 16px;
-  box-sizing: border-box;
-  height: 40px; /* Fixed height */
-  appearance: textfield; /* Ensure consistent look */
-  min-width: 0; /* Prevent input from stretching too much */
+    -moz-appearance: textfield;
+    flex: 1;
+    border: none;
+    text-align: center;
+    padding: 0 45px;
+    margin: 0;
+    font-size: 16px;
+    height: 100%;
+    width: 100%;
+    min-width: 0;
+    background: transparent;
 }
 
+/* Remove default spinners */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Stepper Buttons */
 .stepper button {
-  width: 40px; /* Fixed width for uniformity */
-  background-color: #ddd;
-  border: none;
-  cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.2s ease;
-  height: 40px; /* Match the height of input */
+    position: absolute;
+    width: 45px;
+    height: 100%;
+    background: #e9ecef;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: bold;
+    user-select: none;
+    transition: background-color 0.2s ease;
+}
+
+.stepper button:first-child {
+    left: 0;
+}
+
+.stepper button:last-child {
+    right: 0;
 }
 
 .stepper button:hover {
-  background-color: #ccc; /* Darker background on hover */
+    background: #dee2e6;
 }
 
-/* Remove default stepper arrows */
-input[type="number"]::-webkit-inner-spin-button, 
-input[type="number"]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-/* Hide the final weight visually but keep it accessible */
-#finalWeight {
-  display: none; /* Completely hide it from the user */
-}
-
-/* Mobile adjustments */
-@media (max-width: 600px) {
-  .stepper input[type="number"] {
-    font-size: 18px; /* Larger font for easier reading */
-    padding: 12px 0; /* Increased padding for better touch */
-  }
-}
-
-/* Style for the calculate button */
+/* Calculate Button */
 button.calculate {
-  width: 80%; /* Adjust width for centering */
-  padding: 12px;
-  background-color: #0056D2; /* Blue color similar to Coffee Toolkit */
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  text-transform: uppercase;
-  margin: 10px auto; /* Center the button */
-  display: block;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 16px;
+    margin: 20px auto;
+    display: block;
+    width: 200px;
+    transition: background-color 0.3s;
 }
 
 button.calculate:hover {
-  background-color: #0041a8; /* Darker blue on hover */
-  transform: translateY(-3px); /* Slight lift effect */
+    background: var(--hover-color);
+    transform: none;
 }
 
-button.calculate:active {
-  transform: translateY(0); /* Reset lift on click */
+/* Results Section */
+.results {
+    margin-top: 30px;
+    padding: 20px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid var(--primary-color);
 }
 
-/* Style for results text */
 .results p {
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center; /* Center the result text */
-  margin-top: 10px;
-  color: #333;
+    margin: 15px 0;
+    font-size: 1.1em;
+    color: var(--text-color);
 }
 
-/* General RTL support */
-body[dir="rtl"] #calculator {
-  direction: rtl;
+/* RTL Support */
+body[dir="rtl"] .results {
+    border-left: none;
+    border-right: 4px solid var(--primary-color);
+}
+
+body[dir="rtl"] .stepper button:first-child {
+    left: auto;
+    right: 0;
+}
+
+body[dir="rtl"] .stepper button:last-child {
+    right: auto;
+    left: 0;
+}
+
+input:focus {
+    outline: none;
+}
+
+.stepper:focus-within {
+    border-color: var(--primary-color);
+}
+
+#finalWeight {
+  display: none; /* Completely hide it from the user */
 }
